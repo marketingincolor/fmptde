@@ -1,5 +1,6 @@
 <?php 
 /**
+ * Template Name: Layout 3
  * The template for displaying custom front page
  *
  */
@@ -8,16 +9,27 @@ $custom_logo_url = wp_get_attachment_image_url( $custom_logo_id , 'full' );
 ?>
 
 
-
-<div class="form"><a id="cta-form"></a>
+<div class="hero hide-for-large">
 	<div class="content grid-container full">
-		<div class="inner-content grid-x grid-margin-x align-middle grid-padding-x">
-
-			<div class="form-text small-12 medium-6 cell" >
-				<div class="grid-x grid-margin-x">
-					<div class="small-10 small-offset-1 medium-11 medium-offset-1 cell">
-
+		<div class="inner-content grid-x Xgrid-margin-x Xgrid-padding-x">
+			<!-- <div class="hero-overlay Xsmall-12 show-for-large Xmedium-10 large-6 cell" >
+				<div class="grid-x grid-margin-x hero-inner">
+					<div class="small-12 medium-10 medium-offset-1 large-10 large-offset-1 cell">
+					<?php //if( get_field('hero_title') ): ?>
+						<h1><?php //the_field('hero_title'); ?></h1>
+					<?php //endif; ?>
+					<?php //if( get_field('hero_copy') ): ?>
+						<p><?php //the_field('hero_copy'); ?></p>
+					<?php //endif; ?>
+					</div>
+				</div>
+			</div> -->
+			<div class="hero-overlay hero-mobile small-10 small-offset-1 hide-for-large cell" >
+				<div class="grid-x grid-margin-x hero-inner">
+					<div class="small-12 cell">
+					<div style=" text-align: center; padding: 2em 0em;">
 					<a class="hero-logo" href="<?php echo home_url(); ?>"><?php echo '<img src="' . esc_url( $custom_logo_url ) . '" alt="">'; ?></a>
+					</div>
 
 					<?php if( get_field('hero_title') ): ?>
 						<h1><?php the_field('hero_title'); ?></h1>
@@ -26,9 +38,97 @@ $custom_logo_url = wp_get_attachment_image_url( $custom_logo_id , 'full' );
 						<p><?php the_field('hero_copy'); ?></p>
 					<?php endif; ?>
 					</div>
+					<div class="arrow bounce" style="margin:auto;">
+						<a href="#cta-form"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/fmp-brandlp-hero-icon-downarrow.svg"></a>
+					</div>
 				</div>
 			</div>
-			<div class="small-12 medium-6 cell" >
+		</div>
+	</div>
+</div>
+
+
+
+
+<div class="wrapper show-for-large">
+
+<div class="grid-container-fluid home-hero-slider"> 
+  <div class="orbit" role="region" aria-label="Diesel Header" data-orbit data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out;" data-timer-delay="2000" >
+
+      <div class="orbit-wrapper">
+      <div class="orbit-controls" style="display:none;">
+        <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&lsaquo;</button>
+        <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&rsaquo;</button>
+      </div>
+      <ul class="orbit-container">
+
+      <?php if( have_rows('hero_slider') ):
+
+        $count = 0;
+        $rowcount = get_field('hero_slider');
+        if (is_array($rowcount)) { $count = count($rowcount); }
+
+        while ( have_rows('hero_slider') ) : the_row(); ?>
+
+        <li class="orbit-slide">
+          <figure class="orbit-figure">
+            <img class="orbit-image" src="<?php the_sub_field('hero_slide_image'); ?>" alt="<?php the_sub_field('hero_slide_title'); ?>">
+            <figcaption class="orbit-caption grid-x grid-padding-x">
+              <div class="orbit-caption-meta medium-10 medium-offset-1">
+              <h2><?php the_sub_field('hero_slide_title'); ?></h2>
+              <p><?php the_sub_field('hero_slide_description'); ?></p>
+              <p><a href="<?php the_sub_field('hero_slide_link'); ?>" class="slide-cta-button"><?php the_sub_field('hero_slide_button'); ?></a></p>
+              </div>
+            </figcaption>
+          </figure>
+        </li>
+
+      <?php 
+        endwhile; ?>
+
+      </ul>
+    </div>
+    <nav class="orbit-bullets" style="display:none;">
+      <?php for($i=1; $i<=$count; $i++){ $j=$i-1; ?>
+          <button data-slide="<?php echo $j; ?>"><span class="show-for-sr">Slide details</span></button>
+      <?php } ?>
+    </nav>
+
+      <?php else : // no rows found
+      endif; ?>
+
+  </div>
+</div>
+
+<div class="text-hero grid-x grid-padding-x" style="width:50%; background:white; position:absolute; top:0; bottom:0; ">
+	<div class="text-hero-content medium-10 medium-offset-1">
+	<?php if( get_field('hero_title') ): ?>
+		<h2><?php the_field('hero_title'); ?></h2>
+	<?php endif; ?>
+	<?php if( get_field('hero_copy') ): ?>
+		<p><?php the_field('hero_copy'); ?></p>
+	<?php endif; ?>
+	</div>
+</div>
+
+
+<div class="herotest">
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="form"><a id="cta-form"></a>
+	<div class="content grid-container full">
+		<div class="inner-content grid-x grid-margin-x align-middle grid-padding-x">
+
+			<div class="small-12 cell" >
 				<div class="grid-x grid-margin-x form-inner">
 					<div class="small-10 small-offset-1 Xmedium-6 Xmedium-offset-1 Xsmall-order-1 Xmedium-order-2 cell">
 					<?php if( get_field('form_title') ): ?>
@@ -110,7 +210,7 @@ $custom_logo_url = wp_get_attachment_image_url( $custom_logo_id , 'full' );
 					</div>
 				<?php endif; ?>
 				</div>
-				<div class="grid-x grid-margin-x brand-inner" style="padding-top:.75em;">
+				<div class="grid-x grid-margin-x brand-inner show-for-medium" style="padding-top:.75em;">
 					<div class="small-12 cell">
 					<?php if( get_field('brands_cta_text') ): ?>
 						<a href="#cta-form" class="button-cta"><?php the_field('brands_cta_text'); ?></a>
