@@ -458,9 +458,9 @@ HOME PAGE
 .home-hero-slider .orbit .orbit-caption h2 { color: #261B19; font-size: 40px; font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
 .home-hero-slider .orbit .orbit-caption p { color: #261B19; font-size: 18px; font-weight: 700; margin-bottom: 4rem; }
 .home-hero-slider .orbit .orbit-image { width:50%; float:right; }
-.text-hero .text-hero-content { margin-top:8em; }
+.text-hero .text-hero-content { /*margin-top:8em;*/ margin:auto; }
 .text-hero .text-hero-content h2 { color: #261B19; font-size: 33px; font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
-.text-hero .text-hero-content p { color: #261B19; font-size: 18px; font-weight: 700; margin-bottom: 4rem; }
+.text-hero .text-hero-content p { color: #261B19; font-size: 18px; font-weight: 700; margin-bottom: 0rem; line-height:1.3; }
 
 .orbit .orbit-controls button { font-size:4em; transform: scale(.75,1.25); }
 .orbit-next, .orbit-previous { top:45%; }
