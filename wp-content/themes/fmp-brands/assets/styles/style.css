@@ -376,7 +376,7 @@ HOME PAGE
 .nav-bar { width:100%; padding:32px 0px 0px; }
 .nav-bar { /*position:absolute; z-index:10;*/ }
 .nav-bar {background-color: #261B19; /*#17181c;*/ /*opacity: 0.902*/ }
-.nav-bar img { /*width:40%;*/ max-width:150px; }
+.nav-bar img { /*width:40%;*/ /*max-width:150px;*/ }
 .cta-button a { background-color:transparent; border: 3px solid #f16622; border-radius:25px; padding:.5rem 2rem; color:#fff; text-transform:uppercase; font-weight:800; }
 .cta-button a:hover { background-color:#f16622; border:3px solid #f16622;}
 
